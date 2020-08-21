@@ -1,0 +1,16 @@
+{
+    "mongo": {
+        "db": "delivery",
+        "host": "localhost",
+        "port": 27017,
+        "user": "dadmin",
+        "password": "dpassword",
+        "auth": false
+    },
+    "app": {
+        "hash_salt": "DeL1VeRy",
+        "token_ttl": 86400,
+        "signing_key": "aDpEpLs1eVcErReYt",
+        "port": 8081
+    }
+}
