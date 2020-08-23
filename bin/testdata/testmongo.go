@@ -2,9 +2,9 @@ package testdata
 
 import (
 	"context"
-	"delivery-go/entities/client/clientmongo"
-	"delivery-go/entities/product/productmongo"
-	"delivery-go/entities/user/usermongo"
+	"delivery-go/entities_layer/client/clientmongo"
+	"delivery-go/entities_layer/product/productmongo"
+	"delivery-go/entities_layer/user/usermongo"
 	"log"
 	"time"
 

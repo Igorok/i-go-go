@@ -1,6 +1,6 @@
 package testdata
 
-import "delivery-go/entities/product/productentity"
+import "delivery-go/entities_layer/product/productentity"
 
 // GetTestProducts return data of test products
 func GetTestProducts() []productentity.Product {

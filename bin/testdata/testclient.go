@@ -1,6 +1,6 @@
 package testdata
 
-import "delivery-go/entities/client/cliententity"
+import "delivery-go/entities_layer/client/cliententity"
 
 // GetTestClient return example of client data
 func GetTestClient() cliententity.Client {

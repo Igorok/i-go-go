@@ -2,10 +2,10 @@ package main
 
 import (
 	"context"
-	"delivery-go/entities/client/clientmongo"
-	"delivery-go/entities/product/productmongo"
-	"delivery-go/entities/user/usermongo"
-	"delivery-go/utils"
+	"delivery-go/entities_layer/client/clientmongo"
+	"delivery-go/entities_layer/product/productmongo"
+	"delivery-go/entities_layer/user/usermongo"
+	"delivery-go/service_layer"
 	"fmt"
 	"log"
 	"strconv"
@@ -99,7 +99,7 @@ func insertUsers(db *mongo.Database, eArr *[]clientmongo.Establishment) []usermo
 		IDCl:        (*eArr)[0].IDCl,
 		IDsEst:      []primitive.ObjectID{(*eArr)[0].ID, (*eArr)[1].ID},
 		Login:       "admin",
-		Password:    utils.HashPwd("admin", hashSalt),
+		Password:    service_layer.HashPwd("admin", hashSalt),
 		Email:       "admin@admin.ru",
 		PhoneNumber: "12345678",
 		Name:        "Admin",
@@ -109,11 +109,11 @@ func insertUsers(db *mongo.Database, eArr *[]clientmongo.Establishment) []usermo
 	})
 
 	for ind, est := range *eArr {
-		operatorLogin := utils.ReplaceWhitespace("operator "+est.Name, "_")
-		operatorPassword := utils.HashPwd(operatorLogin, hashSalt)
+		operatorLogin := service_layer.ReplaceWhitespace("operator "+est.Name, "_")
+		operatorPassword := service_layer.HashPwd(operatorLogin, hashSalt)
 
-		courierLogin := utils.ReplaceWhitespace("courier "+est.Name, "_")
-		courierPassword := utils.HashPwd(courierLogin, hashSalt)
+		courierLogin := service_layer.ReplaceWhitespace("courier "+est.Name, "_")
+		courierPassword := service_layer.HashPwd(courierLogin, hashSalt)
 
 		operator := usermongo.UserSystem{
 			IDCl:        est.IDCl,
@@ -260,11 +260,11 @@ func insertProducts(db *mongo.Database, eArr *[]clientmongo.Establishment) []pro
 }
 
 func main_v0() {
-	if err := utils.CfgInit(); err != nil {
+	if err := service_layer.CfgInit(); err != nil {
 		log.Fatalf("%s", err.Error())
 	}
 
-	db := utils.MongoInit("")
+	db := service_layer.MongoInit("")
 
 	defaultClient := insertClient(db)
 	fmt.Println("defaultClient", defaultClient)

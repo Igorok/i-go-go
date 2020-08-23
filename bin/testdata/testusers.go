@@ -1,6 +1,6 @@
 package testdata
 
-import "delivery-go/entities/user/userentity"
+import "delivery-go/entities_layer/user/userentity"
 
 // GetTestUsers return data of test products
 func GetTestUsers() []userentity.UserSystem {
