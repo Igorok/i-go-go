@@ -2,7 +2,7 @@ package productpkg
 
 import (
 	"context"
-	"delivery-go/entities_layer/product/productentity"
+	"i-go-go/entities_layer/product/productentity"
 )
 
 type UseCase interface {

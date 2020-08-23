@@ -2,11 +2,11 @@ package ordermongo
 
 import (
 	"context"
-	"delivery-go/entities_layer/order/orderentity"
-	"delivery-go/entities_layer/order/ordermongo"
-	"delivery-go/entities_layer/product/productentity"
-	"delivery-go/entities_layer/product/productmongo"
-	"delivery-go/entities_layer/user/userentity"
+	"i-go-go/entities_layer/order/orderentity"
+	"i-go-go/entities_layer/order/ordermongo"
+	"i-go-go/entities_layer/product/productentity"
+	"i-go-go/entities_layer/product/productmongo"
+	"i-go-go/entities_layer/user/userentity"
 	"fmt"
 
 	"go.mongodb.org/mongo-driver/bson"

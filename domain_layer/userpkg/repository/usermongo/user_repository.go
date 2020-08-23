@@ -2,8 +2,8 @@ package usermongo
 
 import (
 	"context"
-	"delivery-go/entities_layer/user/userentity"
-	"delivery-go/entities_layer/user/usermongo"
+	"i-go-go/entities_layer/user/userentity"
+	"i-go-go/entities_layer/user/usermongo"
 
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"

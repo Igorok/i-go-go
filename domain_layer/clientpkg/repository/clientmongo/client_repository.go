@@ -2,9 +2,9 @@ package clientmongo
 
 import (
 	"context"
-	"delivery-go/entities_layer/client/cliententity"
-	"delivery-go/entities_layer/client/clientmongo"
-	"delivery-go/entities_layer/user/userentity"
+	"i-go-go/entities_layer/client/cliententity"
+	"i-go-go/entities_layer/client/clientmongo"
+	"i-go-go/entities_layer/user/userentity"
 
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"

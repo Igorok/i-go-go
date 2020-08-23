@@ -2,8 +2,8 @@ package usermock
 
 import (
 	"context"
-	"delivery-go/bin/testdata"
-	"delivery-go/entities_layer/user/userentity"
+	"i-go-go/bin/testdata"
+	"i-go-go/entities_layer/user/userentity"
 )
 
 // UserRepositoryMock

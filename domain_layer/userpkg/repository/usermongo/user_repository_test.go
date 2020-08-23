@@ -2,9 +2,9 @@ package usermongo_test
 
 import (
 	"context"
-	"delivery-go/bin/testdata"
-	"delivery-go/domain_layer/userpkg/repository/usermongo"
-	"delivery-go/service_layer"
+	"i-go-go/bin/testdata"
+	"i-go-go/domain_layer/userpkg/repository/usermongo"
+	"i-go-go/service_layer"
 	"os"
 	"testing"
 

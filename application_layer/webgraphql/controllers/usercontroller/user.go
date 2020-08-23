@@ -1,8 +1,8 @@
 package usercontroller
 
 import (
-	"delivery-go/domain_layer/userpkg"
-	"delivery-go/application_layer/webgraphql/webtypes/usertype"
+	"i-go-go/domain_layer/userpkg"
+	"i-go-go/application_layer/webgraphql/webtypes/usertype"
 
 	"github.com/graphql-go/graphql"
 )

@@ -2,9 +2,9 @@ package ordercase
 
 import (
 	"context"
-	"delivery-go/entities_layer/order/orderentity"
-	"delivery-go/entities_layer/user/userentity"
-	"delivery-go/domain_layer/orderpkg"
+	"i-go-go/entities_layer/order/orderentity"
+	"i-go-go/entities_layer/user/userentity"
+	"i-go-go/domain_layer/orderpkg"
 	"time"
 
 	"gopkg.in/go-playground/validator.v8"

@@ -2,8 +2,8 @@ package productmock
 
 import (
 	"context"
-	"delivery-go/bin/testdata"
-	"delivery-go/entities_layer/product/productentity"
+	"i-go-go/bin/testdata"
+	"i-go-go/entities_layer/product/productentity"
 )
 
 // ProductRepositoryMock mock for productpkg.Repository

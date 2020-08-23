@@ -4,8 +4,8 @@ import (
 	"context"
 	"testing"
 
-	"delivery-go/domain_layer/productpkg/productcase"
-	"delivery-go/domain_layer/productpkg/repository/productmock"
+	"i-go-go/domain_layer/productpkg/productcase"
+	"i-go-go/domain_layer/productpkg/repository/productmock"
 
 	"github.com/stretchr/testify/assert"
 )

@@ -1,12 +1,12 @@
 package webgraphql
 
 import (
-	"delivery-go/domain_layer/orderpkg"
-	"delivery-go/domain_layer/productpkg"
-	"delivery-go/domain_layer/userpkg"
-	"delivery-go/application_layer/webgraphql/controllers/ordercontroller"
-	"delivery-go/application_layer/webgraphql/controllers/productcontroller"
-	"delivery-go/application_layer/webgraphql/controllers/usercontroller"
+	"i-go-go/domain_layer/orderpkg"
+	"i-go-go/domain_layer/productpkg"
+	"i-go-go/domain_layer/userpkg"
+	"i-go-go/application_layer/webgraphql/controllers/ordercontroller"
+	"i-go-go/application_layer/webgraphql/controllers/productcontroller"
+	"i-go-go/application_layer/webgraphql/controllers/usercontroller"
 
 	"github.com/graphql-go/graphql"
 )

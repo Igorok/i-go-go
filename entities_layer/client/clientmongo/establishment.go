@@ -1,7 +1,7 @@
 package clientmongo
 
 import (
-	"delivery-go/entities_layer/client/cliententity"
+	"i-go-go/entities_layer/client/cliententity"
 
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )

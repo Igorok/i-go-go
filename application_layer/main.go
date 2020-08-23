@@ -1,17 +1,17 @@
 package main
 
 import (
-	"delivery-go/domain_layer/orderpkg"
-	"delivery-go/domain_layer/orderpkg/ordercase"
-	"delivery-go/domain_layer/orderpkg/repository/ordermongo"
-	"delivery-go/domain_layer/productpkg"
-	"delivery-go/domain_layer/productpkg/productcase"
-	"delivery-go/domain_layer/productpkg/repository/productmongo"
-	"delivery-go/domain_layer/userpkg"
-	"delivery-go/domain_layer/userpkg/repository/usermongo"
-	"delivery-go/domain_layer/userpkg/usercase"
-	"delivery-go/service_layer"
-	"delivery-go/application_layer/webgraphql"
+	"i-go-go/domain_layer/orderpkg"
+	"i-go-go/domain_layer/orderpkg/ordercase"
+	"i-go-go/domain_layer/orderpkg/repository/ordermongo"
+	"i-go-go/domain_layer/productpkg"
+	"i-go-go/domain_layer/productpkg/productcase"
+	"i-go-go/domain_layer/productpkg/repository/productmongo"
+	"i-go-go/domain_layer/userpkg"
+	"i-go-go/domain_layer/userpkg/repository/usermongo"
+	"i-go-go/domain_layer/userpkg/usercase"
+	"i-go-go/service_layer"
+	"i-go-go/application_layer/webgraphql"
 	"log"
 
 	"github.com/gin-gonic/gin"

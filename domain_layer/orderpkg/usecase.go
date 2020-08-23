@@ -2,8 +2,8 @@ package orderpkg
 
 import (
 	"context"
-	"delivery-go/entities_layer/order/orderentity"
-	"delivery-go/entities_layer/user/userentity"
+	"i-go-go/entities_layer/order/orderentity"
+	"i-go-go/entities_layer/user/userentity"
 	"time"
 )
 

@@ -1,7 +1,7 @@
 package ordermongo
 
 import (
-	"delivery-go/entities_layer/order/orderentity"
+	"i-go-go/entities_layer/order/orderentity"
 	"time"
 
 	"go.mongodb.org/mongo-driver/bson/primitive"

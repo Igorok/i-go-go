@@ -2,9 +2,9 @@ package usercase
 
 import (
 	"context"
-	"delivery-go/entities_layer/user/userentity"
-	"delivery-go/domain_layer/userpkg"
-	"delivery-go/service_layer"
+	"i-go-go/entities_layer/user/userentity"
+	"i-go-go/domain_layer/userpkg"
+	"i-go-go/service_layer"
 	"fmt"
 	"time"
 

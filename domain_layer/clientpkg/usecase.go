@@ -2,7 +2,7 @@ package clientpkg
 
 import (
 	"context"
-	"delivery-go/entities_layer/user/userentity"
+	"i-go-go/entities_layer/user/userentity"
 )
 
 type UseCase interface {

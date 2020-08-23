@@ -2,8 +2,8 @@ package clientpkg
 
 import (
 	"context"
-	"delivery-go/entities_layer/client/cliententity"
-	"delivery-go/entities_layer/user/userentity"
+	"i-go-go/entities_layer/client/cliententity"
+	"i-go-go/entities_layer/user/userentity"
 )
 
 type Repository interface {

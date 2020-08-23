@@ -2,9 +2,9 @@ package orderpkg
 
 import (
 	"context"
-	"delivery-go/entities_layer/order/orderentity"
-	"delivery-go/entities_layer/product/productentity"
-	"delivery-go/entities_layer/user/userentity"
+	"i-go-go/entities_layer/order/orderentity"
+	"i-go-go/entities_layer/product/productentity"
+	"i-go-go/entities_layer/user/userentity"
 )
 
 // Repository - of database methods

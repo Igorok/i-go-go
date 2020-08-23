@@ -1,8 +1,8 @@
 package main
 
 import (
-	"delivery-go/bin/testdata"
-	"delivery-go/service_layer"
+	"i-go-go/bin/testdata"
+	"i-go-go/service_layer"
 	"log"
 )
 

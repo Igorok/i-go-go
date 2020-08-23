@@ -1,8 +1,8 @@
 package productcontroller
 
 import (
-	"delivery-go/domain_layer/productpkg"
-	"delivery-go/application_layer/webgraphql/webtypes/producttype"
+	"i-go-go/domain_layer/productpkg"
+	"i-go-go/application_layer/webgraphql/webtypes/producttype"
 
 	"github.com/graphql-go/graphql"
 )

@@ -1,7 +1,7 @@
 package usermongo
 
 import (
-	"delivery-go/entities_layer/user/userentity"
+	"i-go-go/entities_layer/user/userentity"
 
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )

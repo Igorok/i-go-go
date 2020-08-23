@@ -2,8 +2,8 @@ package productmongo
 
 import (
 	"context"
-	"delivery-go/entities_layer/product/productentity"
-	"delivery-go/entities_layer/product/productmongo"
+	"i-go-go/entities_layer/product/productentity"
+	"i-go-go/entities_layer/product/productmongo"
 
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"

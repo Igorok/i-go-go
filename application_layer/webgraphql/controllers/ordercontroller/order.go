@@ -1,10 +1,10 @@
 package ordercontroller
 
 import (
-	"delivery-go/entities_layer/order/orderentity"
-	"delivery-go/domain_layer/orderpkg"
-	"delivery-go/domain_layer/userpkg"
-	"delivery-go/application_layer/webgraphql/webtypes/ordertype"
+	"i-go-go/entities_layer/order/orderentity"
+	"i-go-go/domain_layer/orderpkg"
+	"i-go-go/domain_layer/userpkg"
+	"i-go-go/application_layer/webgraphql/webtypes/ordertype"
 	"time"
 
 	"github.com/graphql-go/graphql"

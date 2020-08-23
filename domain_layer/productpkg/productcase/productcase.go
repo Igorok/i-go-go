@@ -2,8 +2,8 @@ package productcase
 
 import (
 	"context"
-	"delivery-go/entities_layer/product/productentity"
-	"delivery-go/domain_layer/productpkg"
+	"i-go-go/entities_layer/product/productentity"
+	"i-go-go/domain_layer/productpkg"
 )
 
 type ProductCase struct {

@@ -2,8 +2,8 @@ package usercase_test
 
 import (
 	"context"
-	"delivery-go/domain_layer/userpkg/repository/usermock"
-	"delivery-go/domain_layer/userpkg/usercase"
+	"i-go-go/domain_layer/userpkg/repository/usermock"
+	"i-go-go/domain_layer/userpkg/usercase"
 	"testing"
 
 	"github.com/spf13/viper"

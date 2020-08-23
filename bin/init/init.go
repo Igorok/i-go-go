@@ -2,10 +2,10 @@ package main
 
 import (
 	"context"
-	"delivery-go/entities_layer/client/clientmongo"
-	"delivery-go/entities_layer/product/productmongo"
-	"delivery-go/entities_layer/user/usermongo"
-	"delivery-go/service_layer"
+	"i-go-go/entities_layer/client/clientmongo"
+	"i-go-go/entities_layer/product/productmongo"
+	"i-go-go/entities_layer/user/usermongo"
+	"i-go-go/service_layer"
 	"fmt"
 	"log"
 	"strconv"

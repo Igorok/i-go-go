@@ -2,9 +2,9 @@ package clientcase
 
 import (
 	"context"
-	"delivery-go/entities_layer/client/cliententity"
-	"delivery-go/entities_layer/user/userentity"
-	"delivery-go/domain_layer/clientpkg"
+	"i-go-go/entities_layer/client/cliententity"
+	"i-go-go/entities_layer/user/userentity"
+	"i-go-go/domain_layer/clientpkg"
 )
 
 type ClientUseCase struct {

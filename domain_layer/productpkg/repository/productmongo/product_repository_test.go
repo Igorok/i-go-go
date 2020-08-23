@@ -2,11 +2,11 @@ package productmongo_test
 
 import (
 	"context"
-	"delivery-go/domain_layer/productpkg/repository/productmongo"
-	"delivery-go/service_layer"
+	"i-go-go/domain_layer/productpkg/repository/productmongo"
+	"i-go-go/service_layer"
 	"os"
 
-	"delivery-go/bin/testdata"
+	"i-go-go/bin/testdata"
 	"testing"
 
 	"github.com/spf13/viper"

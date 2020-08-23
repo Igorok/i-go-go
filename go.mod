@@ -1,6 +1,6 @@
-module delivery-go
+module i-go-go
 
-go 1.14
+go 1.15
 
 require (
 	9fans.net/go v0.0.2 // indirect
