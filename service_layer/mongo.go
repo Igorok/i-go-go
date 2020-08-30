@@ -29,6 +29,11 @@ func MongoInit(dbname string) *mongo.Database {
 		":" +
 		viper.GetString("mongo.port")
 
+	replicaSet := viper.GetString("mongo.replicaset")
+	if replicaSet != "" {
+		uri += "/?replicaSet=" + replicaSet + "&authSource=admin"
+	}
+
 	fmt.Println("uri", uri)
 
 	// create connection

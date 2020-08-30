@@ -1,6 +1,7 @@
 package main
 
 import (
+	"i-go-go/application_layer/webgraphql"
 	"i-go-go/domain_layer/orderpkg"
 	"i-go-go/domain_layer/orderpkg/ordercase"
 	"i-go-go/domain_layer/orderpkg/repository/ordermongo"
@@ -11,7 +12,6 @@ import (
 	"i-go-go/domain_layer/userpkg/repository/usermongo"
 	"i-go-go/domain_layer/userpkg/usercase"
 	"i-go-go/service_layer"
-	"i-go-go/application_layer/webgraphql"
 	"log"
 
 	"github.com/gin-gonic/gin"
