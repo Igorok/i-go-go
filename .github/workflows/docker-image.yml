@@ -9,16 +9,13 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      DOCKER_USER: ${{ secrets.DOCKER_USER }}
-      DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
+
     steps:
     - uses: actions/checkout@v2
-    - name: Build the Docker image
-      run: |
-        echo 'Docker login'
-        docker login -u DOCKER_USER -p DOCKER_TOKEN
-        echo 'Docker build...'
-        docker build . --file Dockerfile --tag igordubinin/i-go-go:$(date +%s)
-        echo 'Docker push'
-        docker push igordubinin/i-go-go:v*.*.*
+    -
+      name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKER_USER }}
+        password: ${{ secrets.DOCKER_TOKEN }}
+        repository: igordubinin/i-go-go:v*.*.*
