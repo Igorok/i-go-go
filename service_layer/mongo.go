@@ -20,14 +20,9 @@ func MongoInit(dbname string) *mongo.Database {
 	// connection string
 	uri := "mongodb://"
 	if viper.GetBool("mongo.auth") {
-		uri += viper.GetString("mongo.user") +
-			":" +
-			viper.GetString("mongo.password") +
-			"@"
+		uri += viper.GetString("mongo.user") + ":" + viper.GetString("mongo.password") + "@"
 	}
-	uri += viper.GetString("mongo.host") +
-		":" +
-		viper.GetString("mongo.port")
+	uri += viper.GetString("mongo.host") + ":" + viper.GetString("mongo.port")
 
 	replicaSet := viper.GetString("mongo.replicaset")
 	if replicaSet != "" {

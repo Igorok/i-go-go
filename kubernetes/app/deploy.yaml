@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: i-go-go-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: i-go-go
+  template:
+    metadata:
+      labels:
+        app: i-go-go
+    spec:
+      containers:
+      - name: i-go-go
+        image: igordubinin/i-go-go:1.2
+        ports:
+        - containerPort: 3000
+        env:
+          - name: MONGO_HOST
+            valueFrom:
+              secretKeyRef:
+                name: i-go-go-db
+                key: MONGO_HOST
+          - name: MONGO_USER
+            valueFrom:
+              secretKeyRef:
+                name: i-go-go-db
+                key: MONGO_ROOT_USERNAME
+          - name: MONGO_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: i-go-go-db
+                key: MONGO_ROOT_PASSWORD
+          - name: MONGO_AUTH
+            value: "true"

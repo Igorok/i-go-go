@@ -18,7 +18,7 @@ RUN ls -la ./application_layer
 
 RUN go build application_layer/main.go
 
-# This container exposes port 8080 to the outside world
+# This container exposes port 3000 to the outside world
 EXPOSE 3000
 
 # Run the executable
