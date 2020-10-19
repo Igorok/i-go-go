@@ -15,13 +15,15 @@ jobs:
           repository: igordubinin/i-go-go
           tag: v0.0.1
       - name: Login to DockerHub
+        id: login
         uses: docker/login-action@v1 
         with:
           registry: igordubinin
           username: ${{ secrets.DOCKER_USER }}
           password: ${{ secrets.DOCKER_TOKEN }}
       - name: Push image
+        id: push
         uses: docker/push-action@v1
         with:
           registry: igordubinin
-          tags: ${{ outputs.build.tags }}
+          
