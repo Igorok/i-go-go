@@ -8,19 +8,20 @@ jobs:
   main:
     runs-on: ubuntu-latest
     steps:
-      -
-        name: Login to DockerHub
+      - name: Build image
+        id: build
+        uses: docker/build-action@v1
+        with:
+          repository: igordubinin/i-go-go
+          tag: v0.0.1
+      - name: Login to DockerHub
         uses: docker/login-action@v1 
         with:
+          registry: igordubinin
           username: ${{ secrets.DOCKER_USER }}
           password: ${{ secrets.DOCKER_TOKEN }}
-      -
-        name: Build and push
-        id: docker_build
-        uses: docker/build-push-action@v2
+      - name: Push image
+        uses: docker/push-action@v1
         with:
-          push: true
-          tags: igordubinin/i-go-go:latest
-      -
-        name: Image digest
-        run: echo ${{ steps.docker_build.outputs.digest }}
+          registry: igordubinin
+          tags: ${{ outputs.build.tags }}
