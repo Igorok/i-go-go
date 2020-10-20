@@ -33,5 +33,3 @@ spec:
               secretKeyRef:
                 name: i-go-go-secrets
                 key: MONGO_PASSWORD
-          - name: MONGO_AUTH
-            value: "true"
