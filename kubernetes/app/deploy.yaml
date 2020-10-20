@@ -21,17 +21,17 @@ spec:
           - name: MONGO_HOST
             valueFrom:
               secretKeyRef:
-                name: i-go-go-db
+                name: i-go-go-secrets
                 key: MONGO_HOST
           - name: MONGO_USER
             valueFrom:
               secretKeyRef:
-                name: i-go-go-db
-                key: MONGO_ROOT_USERNAME
+                name: i-go-go-secrets
+                key: MONGO_USER
           - name: MONGO_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: i-go-go-db
-                key: MONGO_ROOT_PASSWORD
+                name: i-go-go-secrets
+                key: MONGO_PASSWORD
           - name: MONGO_AUTH
             value: "true"
