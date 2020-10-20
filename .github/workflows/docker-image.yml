@@ -26,7 +26,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: igordubinin/i-go-go:v0.0.1
+          tags: igordubinin/i-go-go:v0.0.2
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
