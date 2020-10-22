@@ -1,0 +1,1 @@
+{"jobID":"b1bd2366-9c36-9450-caab-ee4ebab47f46","spec":{"type":"policy","cause":{"Message":"","User":"Igor Dubinin \u003cI.Dubinin@x5.ru\u003e"},"spec":{"default:deployment/i-go-go-deployment":{"add":{},"remove":{"automated":"true"}}}},"result":null}
