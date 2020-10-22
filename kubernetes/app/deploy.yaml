@@ -1,3 +1,4 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -18,18 +19,18 @@ spec:
         ports:
         - containerPort: 3000
         env:
-          - name: MONGO_HOST
-            valueFrom:
-              secretKeyRef:
-                name: i-go-go-secrets
-                key: MONGO_HOST
-          - name: MONGO_USER
-            valueFrom:
-              secretKeyRef:
-                name: i-go-go-secrets
-                key: MONGO_USER
-          - name: MONGO_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: i-go-go-secrets
-                key: MONGO_PASSWORD
+        - name: MONGO_HOST
+          valueFrom:
+            secretKeyRef:
+              name: i-go-go-secrets
+              key: MONGO_HOST
+        - name: MONGO_USER
+          valueFrom:
+            secretKeyRef:
+              name: i-go-go-secrets
+              key: MONGO_USER
+        - name: MONGO_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: i-go-go-secrets
+              key: MONGO_PASSWORD
