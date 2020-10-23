@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/rewrite-target: /$1   #new 
+  name: i-go-go-ingress
+  namespace: i-go-go-ns
+spec:
+  tls:
+  - hosts:
+    - i-go-go.local
+    secretName: i-go-go-tls-secret
+  rules:
+  - host: i-go-go.local
+    http:
+      paths:
+      - path: /api/?(.*)
+        backend:
+          serviceName: i-go-go-service
+          servicePort: 3000

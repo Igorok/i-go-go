@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: i-go-go-deployment
+  namespace: i-go-go-ns
 spec:
   replicas: 2
   selector:
