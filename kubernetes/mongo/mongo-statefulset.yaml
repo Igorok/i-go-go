@@ -14,13 +14,10 @@ spec:
         app: database
         selector: mongodb-standalone
     spec:
-      # securityContext:
-      #   runAsUser: 1000
-      #   fsGroup: 1000
       containers:
       - name: mongodb-standalone
         image: mongo:4.0.8
-        # command: ["mongod", "--config", "/config/mongo.conf"]
+        command: ["mongod", "--config", "/config/mongo.conf"]
         env:
           - name: MONGO_INITDB_ROOT_USERNAME_FILE
             value: /mnt/i-go-go-db/admin/MONGO_ROOT_USERNAME
@@ -37,7 +34,7 @@ spec:
           mountPath: /config
           readOnly: true
         - name: mongodb-data
-          mountPath: /mnt/i-go-go-db/data/db
+          mountPath: /persistentvolumes/data/db
       volumes:
       - name: i-go-go-db
         secret:

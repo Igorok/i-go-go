@@ -5,7 +5,7 @@ metadata:
 data:
   mongo.conf: |
     storage:
-      dbPath: /mnt/i-go-go-db/data/db
+      dbPath: /persistentvolumes/data/db
   ensure-users.js: |
     const targetDbStr = 'training';
     const rootUser = cat('/mnt/i-go-go-db/admin/MONGO_ROOT_USERNAME');
