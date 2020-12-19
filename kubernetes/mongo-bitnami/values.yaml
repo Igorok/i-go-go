@@ -1,0 +1,119 @@
+## MongoDB architecture. Allowed values: standalone or replicaset
+##
+architecture: replicaset
+
+## MongoDB Authentication parameters
+##
+auth:
+  ## Enable authentication
+  ## ref: https://docs.mongodb.com/manual/tutorial/enable-authentication/
+  ##
+  enabled: true
+  ## MongoDB root password
+  ## ref: https://github.com/bitnami/bitnami-docker-mongodb/blob/master/README.md#setting-the-root-password-on-first-run
+  ##
+  rootPassword: ""
+  ## MongoDB custom user and database
+  ## ref: https://github.com/bitnami/bitnami-docker-mongodb/blob/master/README.md#creating-a-user-and-database-on-first-run
+  ##
+  # username: username
+  # password: password
+  # database: database
+  ## Key used for replica set authentication
+  ## Ignored when mongodb.architecture=standalone
+  ##
+  replicaSetKey: ""
+
+  ## Existing secret with MongoDB credentials
+  ## NOTE: When it's set the previous parameters are ignored.
+  ##
+  existingSecret: mongodb
+
+## Whether enable/disable DirectoryPerDB on MongoDB
+## ref: https://github.com/bitnami/bitnami-docker-mongodb/blob/master/README.md#enabling/disabling-directoryperdb
+##
+directoryPerDB: false
+
+## MongoDB System Log configuration
+## ref: https://github.com/bitnami/bitnami-docker-mongodb#configuring-system-log-verbosity-level
+##
+systemLogVerbosity: 0
+disableSystemLog: false
+
+## ConfigMap with MongoDB configuration for Primary and Secondary nodes
+## NOTE: When it's set the arbiter.configuration parameter is ignored
+##
+# existingConfigmap:
+
+## initdb scripts
+## Specify dictionary of scripts to be run at first boot
+## Example:
+## initdbScripts:
+##   my_init_script.sh: |
+##      #!/bin/bash
+##      echo "Do something."
+initdbScripts: {}
+
+## Existing ConfigMap with custom init scripts
+##
+# initdbScriptsConfigMap:
+
+## Command and args for running the container (set to default if not set). Use array form
+##
+# command:
+# args:
+
+## Additional command line flags
+## Example:
+## extraFlags:
+##  - "--wiredTigerCacheSizeGB=2"
+##
+extraFlags: []
+
+## Number of MongoDB replicas to deploy.
+## Ignored when mongodb.architecture=standalone
+##
+replicaCount: 2
+
+## Enable persistence using Persistent Volume Claims
+## ref: http://kubernetes.io/docs/user-guide/persistent-volumes/
+##
+persistence:
+  enabled: true
+  ## A manually managed Persistent Volume and Claim
+  ## Requires persistence.enabled: true
+  ## If defined, PVC must be created manually before volume will be bound
+  ## Ignored when mongodb.architecture=replicaset
+  ##
+  # existingClaim:
+  ## PV Storage Class
+  ## If defined, storageClassName: <storageClass>
+  ## If set to "-", storageClassName: "", which disables dynamic provisioning
+  ## If undefined (the default) or set to null, no storageClassName spec is
+  ## set, choosing the default provisioner.
+  ##
+  storageClass: "i-go-go-nfs-storage"
+  ## PV Access Mode
+  ##
+  accessModes:
+    - ReadWriteOnce
+  ## PVC size
+  ##
+  size: 1Gi
+  ## PVC annotations
+  ##
+  annotations: {}
+  ## The path the volume will be mounted at, useful when using different
+  ## MongoDB images.
+  ##
+  mountPath: /bitnami/mongodb
+  ## The subdirectory of the volume to mount to, useful in dev environments
+  ## and one PV for multiple services.
+  ##
+  subPath: ""
+  ## Fine tuning for volumeClaimTemplates
+  volumeClaimTemplates:
+    ## A label query over volumes to consider for binding (e.g. when using local volumes)
+    ## See https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.20/#labelselector-v1-meta for more details
+    selector:
+
