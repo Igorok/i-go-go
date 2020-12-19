@@ -3,6 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: i-go-go-deployment
+  namespace: i-go-go-ns
 spec:
   replicas: 2
   selector:
@@ -34,3 +35,13 @@ spec:
             secretKeyRef:
               name: i-go-go-secrets
               key: MONGO_PASSWORD
+        - name: MONGO_AUTH
+          valueFrom:
+            secretKeyRef:
+              name: i-go-go-secrets
+              key: MONGO_AUTH
+        - name: MONGO_REPLICASET
+          valueFrom:
+            secretKeyRef:
+              name: i-go-go-secrets
+              key: MONGO_REPLICASET
