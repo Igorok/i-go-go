@@ -26,7 +26,7 @@ func MongoInit(dbname string) *mongo.Database {
 
 	replicaSet := viper.GetString("mongo.replicaset")
 	if replicaSet != "" {
-		uri += "/?replicaSet=" + replicaSet + "&authSource=admin"
+		uri += "/" + dbname + "?replicaSet=" + replicaSet // + "&authSource=admin"
 	}
 
 	fmt.Println("uri", uri)

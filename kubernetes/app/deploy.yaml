@@ -34,3 +34,13 @@ spec:
               secretKeyRef:
                 name: i-go-go-secrets
                 key: MONGO_PASSWORD
+          - name: MONGO_AUTH
+            valueFrom:
+              secretKeyRef:
+                name: i-go-go-secrets
+                key: MONGO_AUTH
+          - name: MONGO_REPLICASET
+            valueFrom:
+              secretKeyRef:
+                name: i-go-go-secrets
+                key: MONGO_REPLICASET
