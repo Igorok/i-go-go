@@ -15,32 +15,32 @@ spec:
     spec:
       containers:
       - name: i-go-go
-        image: igordubinin/i-go-go:v0.0.2
+        image: igordubinin/i-go-go:v0.0.3
         ports:
         - containerPort: 3000
         env:
-          - name: MONGO_HOST
-            valueFrom:
-              secretKeyRef:
-                name: i-go-go-secrets
-                key: MONGO_HOST
-          - name: MONGO_USER
-            valueFrom:
-              secretKeyRef:
-                name: i-go-go-secrets
-                key: MONGO_USER
-          - name: MONGO_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: i-go-go-secrets
-                key: MONGO_PASSWORD
-          - name: MONGO_AUTH
-            valueFrom:
-              secretKeyRef:
-                name: i-go-go-secrets
-                key: MONGO_AUTH
-          - name: MONGO_REPLICASET
-            valueFrom:
-              secretKeyRef:
-                name: i-go-go-secrets
-                key: MONGO_REPLICASET
+        - name: MONGO_HOST
+          valueFrom:
+            secretKeyRef:
+              name: i-go-go-secrets
+              key: MONGO_HOST
+        - name: MONGO_USER
+          valueFrom:
+            secretKeyRef:
+              name: i-go-go-secrets
+              key: MONGO_USER
+        - name: MONGO_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: i-go-go-secrets
+              key: MONGO_PASSWORD
+        - name: MONGO_AUTH
+          valueFrom:
+            secretKeyRef:
+              name: i-go-go-secrets
+              key: MONGO_AUTH
+        - name: MONGO_REPLICASET
+          valueFrom:
+            secretKeyRef:
+              name: i-go-go-secrets
+              key: MONGO_REPLICASET

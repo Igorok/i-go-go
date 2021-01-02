@@ -27,6 +27,8 @@ spec:
             - --udp-services-configmap=$(POD_NAMESPACE)/udp-services
             - --publish-service=$(POD_NAMESPACE)/ingress-nginx
             - --annotations-prefix=nginx.ingress.kubernetes.io
+            - --enable-ssl-chain-completion=false
+            - --enable-ssl-passthrough
           securityContext:
             allowPrivilegeEscalation: true
             capabilities:
