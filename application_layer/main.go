@@ -13,10 +13,12 @@ import (
 	"i-go-go/domain_layer/userpkg/usercase"
 	"i-go-go/service_layer"
 	"log"
+	"strings"
 
 	"github.com/gin-gonic/gin"
 	"github.com/graphql-go/handler"
 	"github.com/spf13/viper"
+	ginprometheus "github.com/zsais/go-gin-prometheus"
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
@@ -72,6 +74,20 @@ func main() {
 
 	r.GET("/graphql", graphHandler)
 	r.POST("/graphql", graphHandler)
+
+	// prometheus
+	p := ginprometheus.NewPrometheus("gin")
+	p.ReqCntURLLabelMappingFn = func(c *gin.Context) string {
+		url := c.Request.URL.Path
+		for _, p := range c.Params {
+			if p.Key == "name" {
+				url = strings.Replace(url, p.Value, ":name", 1)
+				break
+			}
+		}
+		return url
+	}
+	p.Use(r)
 
 	// Listen and serve on 0.0.0.0:8080
 	r.Run(":" + viper.GetString("app.port"))

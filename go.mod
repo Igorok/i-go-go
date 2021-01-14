@@ -13,11 +13,13 @@ require (
 	github.com/lukehoban/ident v0.0.0-20161021214352-ec6acfba39eb // indirect
 	github.com/newhook/go-symbols v0.0.0-20151212134530-b75dfefa0d23 // indirect
 	github.com/nsf/gocode v0.0.0-20190302080247-5bee97b48836 // indirect
+	github.com/prometheus/client_golang v1.9.0 // indirect
 	github.com/rogpeppe/godef v1.1.2 // indirect
 	github.com/spf13/viper v1.6.2
 	github.com/sqs/goreturns v0.0.0-20181028201513-538ac6014518 // indirect
 	github.com/stretchr/testify v1.4.0
 	github.com/tpng/gopkgs v0.0.0-20180428091733-81e90e22e204 // indirect
+	github.com/zsais/go-gin-prometheus v0.1.0
 	go.mongodb.org/mongo-driver v1.3.1
 	golang.org/x/lint v0.0.0-20200302205851-738671d3881b // indirect
 	golang.org/x/tools v0.0.0-20200820180210-c8f393745106 // indirect

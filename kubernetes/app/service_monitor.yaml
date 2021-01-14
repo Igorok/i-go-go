@@ -1,0 +1,16 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: i-go-go-service
+  namespace: i-go-go-ns
+  labels:
+    prometheus: prometheus-k8s
+    k8s-app: i-go-go-service
+spec:
+  jobLabel: i-go-go-service
+  selector:
+    matchLabels:
+      app: i-go-go
+  endpoints:
+  - port: http
+    interval: 30s
