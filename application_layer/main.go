@@ -13,7 +13,6 @@ import (
 	"i-go-go/domain_layer/userpkg/usercase"
 	"i-go-go/service_layer"
 	"log"
-	"strings"
 
 	"github.com/gin-gonic/gin"
 	"github.com/graphql-go/handler"
@@ -64,32 +63,33 @@ func main() {
 	}
 
 	mongoDb := service_layer.MongoInit("")
-	graphHandler := getHandler(mongoDb)
 
 	r := gin.Default()
+
+	// prometheus
+	p := ginprometheus.NewPrometheus("gin")
+	// If you have for instance a /customer/:name
+	// p.ReqCntURLLabelMappingFn = func(c *gin.Context) string {
+	// 	url := c.Request.URL.Path
+	// 	for _, p := range c.Params {
+	// 		if p.Key == "name" {
+	// 			url = strings.Replace(url, p.Value, ":name", 1)
+	// 			break
+	// 		}
+	// 	}
+	// 	return url
+	// }
+	p.Use(r)
+
 	r.Use(
 		gin.Recovery(),
 		gin.Logger(),
 	)
 
+	graphHandler := getHandler(mongoDb)
 	r.GET("/graphql", graphHandler)
 	r.POST("/graphql", graphHandler)
 
-	// prometheus
-	p := ginprometheus.NewPrometheus("gin")
-	p.ReqCntURLLabelMappingFn = func(c *gin.Context) string {
-		url := c.Request.URL.Path
-		for _, p := range c.Params {
-			if p.Key == "name" {
-				url = strings.Replace(url, p.Value, ":name", 1)
-				break
-			}
-		}
-		return url
-	}
-	p.Use(r)
-
 	// Listen and serve on 0.0.0.0:8080
 	r.Run(":" + viper.GetString("app.port"))
-
 }
