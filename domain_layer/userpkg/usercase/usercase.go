@@ -2,10 +2,10 @@ package usercase
 
 import (
 	"context"
-	"i-go-go/entities_layer/user/userentity"
-	"i-go-go/domain_layer/userpkg"
-	"i-go-go/service_layer"
 	"fmt"
+	"i-go-go/domain_layer/userpkg"
+	"i-go-go/entities_layer/user/userentity"
+	"i-go-go/service_layer"
 	"time"
 
 	"github.com/dgrijalva/jwt-go"
@@ -19,19 +19,22 @@ type AuthClaims struct {
 type UserCase struct {
 	userRepo       userpkg.Repository
 	hashSalt       string
-	signingKey     []byte
+	signingKey     string
+	signingKeyByte []byte
 	expireDuration time.Duration
 }
 
 func NewAuthUseCase(
 	userRepo userpkg.Repository,
 	hashSalt string,
-	signingKey []byte,
+	signingKey string,
 	tokenTTLSeconds time.Duration) *UserCase {
+
 	return &UserCase{
 		userRepo:       userRepo,
 		hashSalt:       hashSalt,
 		signingKey:     signingKey,
+		signingKeyByte: []byte(signingKey),
 		expireDuration: time.Second * tokenTTLSeconds,
 	}
 }
@@ -53,7 +56,7 @@ func (uc *UserCase) SignIn(ctx context.Context, login, password string) (string,
 
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
 
-	return token.SignedString(uc.signingKey)
+	return token.SignedString(uc.signingKeyByte)
 }
 
 func (uc *UserCase) ParseToken(ctx context.Context, accessToken string) (*userentity.UserSystem, error) {
@@ -61,7 +64,7 @@ func (uc *UserCase) ParseToken(ctx context.Context, accessToken string) (*useren
 		if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
 			return nil, fmt.Errorf("Unexpected signing method: %v", token.Header["alg"])
 		}
-		return uc.signingKey, nil
+		return uc.signingKeyByte, nil
 	})
 
 	if err != nil {

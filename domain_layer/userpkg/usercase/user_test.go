@@ -22,7 +22,7 @@ func TestAuth(t *testing.T) {
 	uc := usercase.NewAuthUseCase(
 		userRepo,
 		viper.GetString("app.hash_salt"),
-		[]byte(viper.GetString("app.signing_key")),
+		viper.GetString("app.signing_key"),
 		viper.GetDuration("app.token_ttl"),
 	)
 
