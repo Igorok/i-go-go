@@ -2,85 +2,167 @@ package main
 
 import (
 	"fmt"
+	"math"
 )
 
-// [17 20 26 31 44 54 55 77 93 94 94]
-/*
-Bubble sort
-Алгоритм состоит из повторяющихся проходов по сортируемому массиву. За каждый проход элементы последовательно сравниваются попарно и, если порядок в паре неверный, выполняется обмен элементов.
-*/
-func sortBubble(arr []int) []int {
-	for i := len(arr) - 1; i > 0; i-- {
-		change := false
+//  := []int{54,26,1,93,100,17,15,77,57,31,44,55,11,20,94,94}
+
+// sorting interface
+type Sorting interface {
+	sort() []int
+}
+
+// bubble sorting
+type BubbleSorting struct {
+	array []int
+}
+
+func (bs BubbleSorting) sort() []int {
+	for i := len(bs.array) - 1; i > 0; i-- {
 		for j := 0; j < i; j++ {
-			if arr[j] > arr[j+1] {
-				change = true
-				t := arr[j+1]
-				arr[j+1] = arr[j]
-				arr[j] = t
+			if bs.array[j] > bs.array[j+1] {
+				bs.array[j], bs.array[j+1] = bs.array[j+1], bs.array[j]
 			}
-		}
-		if !change {
-			break
 		}
 	}
 
-	return arr
+	return bs.array
 }
 
-/*
-Selection sort
-Шаги алгоритма:
- - находим номер минимального значения в текущем списке
- - производим обмен этого значения со значением первой неотсортированной позиции (обмен не нужен, если минимальный элемент уже находится на данной позиции)
- - теперь сортируем хвост списка, исключив из рассмотрения уже отсортированные элементы
-*/
-func sortSelection(arr []int) []int {
-	for i := 0; i < len(arr)-1; i++ {
-		min := i
-		for j := i + 1; j < len(arr); j++ {
-			if arr[j] < arr[min] {
-				min = j
-			}
-		}
-		if min != i {
-			t := arr[i]
-			arr[i] = arr[min]
-			arr[min] = t
-		}
-	}
-
-	return arr
+// insertion sorting
+type InsertionSorting struct {
+	array []int
 }
 
-/*
-Insertion sort
-Алгоритм сортировки, в котором элементы входной последовательности просматриваются по одному, и каждый новый поступивший элемент размещается в подходящее место среди ранее упорядоченных элементов
-*/
-func sortInsertion(arr []int) []int {
-	for i := 1; i < len(arr)-1; i++ {
-		t := arr[i]
+func (ins InsertionSorting) sort() []int {
+	for i := 1; i < len(ins.array); i++ {
 		j := i
+		tmp := ins.array[i]
+
 		for j > 0 {
-			if arr[j-1] > t {
-				arr[j] = arr[j-1]
-				j = j - 1
+			if ins.array[j-1] > tmp {
+				ins.array[j] = ins.array[j-1]
+				j--
 			} else {
 				break
 			}
 		}
-		arr[j] = t
+
+		if i != j {
+			ins.array[j] = tmp
+		}
 	}
 
-	return arr
+	return ins.array
+}
+
+// insertion sorting
+type MergeSorting struct {
+	array []int
+}
+
+func (ms MergeSorting) recSort(arr []int) []int {
+	if len(arr) <= 1 {
+		return arr
+	}
+
+	middle := int(math.Round(float64(len(arr) / 2)))
+	left := ms.recSort(arr[0:middle])
+	right := ms.recSort(arr[middle:])
+
+	var mergedArr []int
+	i := 0
+	j := 0
+
+	for i < len(left) && j < len(right) {
+		if left[i] < right[j] {
+			mergedArr = append(mergedArr, left[i])
+			i++
+		} else {
+			mergedArr = append(mergedArr, right[j])
+			j++
+		}
+	}
+
+	for i < len(left) {
+		mergedArr = append(mergedArr, left[i])
+		i++
+	}
+
+	for j < len(right) {
+		mergedArr = append(mergedArr, right[j])
+		j++
+	}
+
+	return mergedArr
+}
+
+func (ms MergeSorting) sort() []int {
+	return ms.recSort(ms.array)
+}
+
+// quick sorting
+type QuickSorting struct {
+	array []int
+	index int
+}
+
+func (qs QuickSorting) recSort(array []int) []int {
+	if len(array) <= 1 {
+		return array
+	}
+
+	var left []int
+	var right []int
+
+	for i := 0; i < len(array); i++ {
+		if i == qs.index {
+			continue
+		}
+
+		if array[i] >= array[qs.index] {
+			right = append(right, array[i])
+		} else {
+			left = append(left, array[i])
+		}
+	}
+
+	left = append(left, array[qs.index])
+
+	left = qs.recSort(left)
+	right = qs.recSort(right)
+
+	return append(left[:], right[:]...)
+}
+
+func (qs QuickSorting) sort() []int {
+	return qs.recSort(qs.array)
+}
+
+// factory for different sortings
+func factory(method string, array []int) Sorting {
+	if method == "insert" {
+		return &InsertionSorting{array: array}
+	} else if method == "merge" {
+		return &MergeSorting{array: array}
+	} else if method == "quick" {
+		return &QuickSorting{array: array, index: 0}
+	}
+	return &BubbleSorting{array: array}
 }
 
 func main() {
-	arr := []int{54, 26, 93, 17, 77, 31, 44, 55, 20, 94, 94}
+	var sorting Sorting
 
-	// sorted := sortBubble(arr)
-	// sorted := sortSelection(arr)
-	sorted := sortInsertion(arr)
+	sorting = factory("bubble", []int{54, 26, 1, 93, 100, 17, 15, 77, 57, 31, 44, 55, 11, 20, 94, 94})
+	fmt.Println("bubble", sorting.sort())
 
-	fmt.Println("sorted", sorted)
+	sorting = factory("insert", []int{54, 26, 1, 93, 100, 17, 15, 77, 57, 31, 44, 55, 11, 20, 94, 94})
+	fmt.Println("insert", sorting.sort())
+
+	sorting = factory("merge", []int{54, 26, 1, 93, 100, 17, 15, 77, 57, 31, 44, 55, 11, 20, 94, 94})
+	fmt.Println("merge", sorting.sort())
+
+	sorting = factory("quick", []int{54, 26, 1, 93, 100, 17, 15, 77, 57, 31, 44, 55, 11, 20, 94, 94})
+	fmt.Println("quick", sorting.sort())
 }

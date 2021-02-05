@@ -19,17 +19,17 @@ spec:
         - name: nfs-db-provisioner-0
           image: quay.io/external_storage/nfs-client-provisioner:latest
           volumeMounts:
-            - name: nfs-db-0
+            - name: mongo
               mountPath: /persistentvolumes
           env:
             - name: PROVISIONER_NAME
               value: example.com/nfs
             - name: NFS_SERVER
-              value: 192.168.1.13
+              value: 192.168.1.195
             - name: NFS_PATH
-              value: /Users/igordubinin/nfs/db-0
+              value: /home/asus/nfs/mongo
       volumes:
-        - name: nfs-db-0
+        - name: mongo
           nfs:
-            server: 192.168.1.13
-            path: /Users/igordubinin/nfs/db-0
+            server: 192.168.1.195
+            path: /home/asus/nfs/mongo

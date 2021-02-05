@@ -3,10 +3,14 @@ kind: Service
 metadata:
   name: i-go-go-service
   namespace: i-go-go-ns
+  labels:
+    app: i-go-go
 spec:
+  type: LoadBalancer
   selector:
     app: i-go-go
   ports:
-    - port: 3000
+    - name: http
+      protocol: TCP
+      port: 3000
       targetPort: 3000
-  type: LoadBalancer

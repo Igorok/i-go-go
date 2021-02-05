@@ -1,7 +1,7 @@
 {
     "mongo": {
         "db": "delivery",
-        "host": "localhost",
+        "host": "192.168.1.195",
         "port": 27017,
         "user": "dadmin",
         "password": "dpassword",

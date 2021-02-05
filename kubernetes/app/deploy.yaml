@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: i-go-go
-        image: igordubinin/i-go-go:v0.0.2
+        image: igordubinin/i-go-go:v0.0.1
         ports:
         - containerPort: 3000
         env:
